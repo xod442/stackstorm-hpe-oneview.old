@@ -25,9 +25,9 @@ class alarmLookup(HpecfmBaseAction):
     def run(self):
         ov_networks = self.client.ethernet_networks.get_all()
         if isinstance(ov_networks, list):
-            # Create a empty list for alarms
+            # Create a empty list for networks
             net_data = []
-            # Loop through cfm_audits and process ALARMS
+            # Loop through ov_networks and process networks
             for net in ov_networks:
                 net_data.append(net)
 
