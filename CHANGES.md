@@ -1,5 +1,5 @@
-# HPECFM Integration Pack
-This pack allows you to integrate with
+# hpeOneView-stackstorm
+stackstorm integration pack for HPE One View
 
 ## Configuration
 Copy the example configuration in [hpeoneview.yaml.example](./hpeoneview.yaml.example) to
@@ -9,7 +9,7 @@ It must contain:
 
 ```
 ipaddress - Your OneView appliance IP address
-username - OneView User name
+username - OneView Username
 password - OneView Password
 ```
 
@@ -36,9 +36,13 @@ You can also run `st2 pack config hpeoneview` and answer the promts
 Actions are defined in two groups:
 
 ### Individual actions: GET, POST, PUT with under bar will precede each individual action
-* ``get_interconnects``
-* ``get_network_sets``
-* ``get_`enclosure`
-* ``post_fabrics``
+* ``get_``
+* ``get_switches``
+* ``get_events``
+* ``post_fit``
 
 ### Orquestra Workflows: will not
+* ``sendsnow``
+* ``performfit``
+* ``getswitches``
+* ``getfabric_for_fit``
