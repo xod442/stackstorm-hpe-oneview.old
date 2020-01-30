@@ -19,9 +19,9 @@
 # __email__ = "rick.a.kauffman@hpe.com"
 
 
-from lib.actions import HpecfmBaseAction
+from lib.actions import HpeOVBaseAction
 
-class alarmLookup(HpecfmBaseAction):
+class networks(HpeOVBaseAction):
     def run(self):
         ov_networks = self.client.ethernet_networks.get_all()
         if isinstance(ov_networks, list):
