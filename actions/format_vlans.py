@@ -30,6 +30,8 @@ class FormatVlans(Action):
         net_out=[]
         for net in networks:
             name=net['name']
+            if net['vlans'] == 0:
+                continue
             vlans=net['vlanId']
             vlans=str(vlans)
             description=net['description']
