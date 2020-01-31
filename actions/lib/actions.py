@@ -16,7 +16,7 @@
 # __credits__ = ["Rick Kauffman"]
 # __license__ = "Apache2.0"
 # __maintainer__ = "Rick Kauffman"
-# __email__ = "rick.a.kauffman@hpe.com"
+# __email__ = "rick.a.kauffman@hpe.com""
 
 from hpOneView.oneview_client import OneViewClient
 from st2common.runners.base_action import Action
@@ -24,8 +24,7 @@ from st2common.runners.base_action import Action
 class HpeOVBaseAction(Action):
     def __init__(self,config):
         super(HpeOVBaseAction, self).__init__(config)
-        self.client = self._get_client()
-
+    
         authx = {
             "ip": self.config['ipaddress'],
             "credentials": {
