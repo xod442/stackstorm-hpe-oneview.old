@@ -1,0 +1,13 @@
+---
+name: formatvlans
+pack: hpeoneview
+description: process dictionary into actionable items
+runner_type: python-script
+entry_point: format_tweet.py
+enabled: true
+parameters:
+  networks:
+    type: "array"
+    description: "The list of network from oneview"
+    required: true
+    position: 0

@@ -9,8 +9,17 @@ tasks:
       - when: <% succeeded() %>
         publish:
           - networks: <% result().result %>
+        do: cleanvlans
+
+  cleanvlans:
+    action: hpeoneview.format
+    input: <% ctx().networks %>
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - networks1: <% result().result %>
         do: sendcfm
 
   sendcfm:
-    with: <% ctx().networks %>
-    action: hpecfm.post_vlan name='<% item(u_name) %>' description='<% item(u_description) %>' vlans='<% item(u_vlanId)%>'
+    with: <% ctx().networks1 %>
+    action: hpecfm.post_vlan name='<% item(name) %>' description='<% item(description) %>' vlans='<% item(vlans) %>'
