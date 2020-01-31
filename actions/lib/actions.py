@@ -29,8 +29,8 @@ class HpeOVBaseAction(Action):
         authx = {
             "ip": self.config['ipaddress'],
             "credentials": {
-                "userName": username = self.config['username'],
-                "password": password = self.config['password']
+                "userName": self.config['username'],
+                "password": self.config['password']
             }
         }
 
