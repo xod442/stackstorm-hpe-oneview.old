@@ -23,10 +23,8 @@ from st2common.runners.base_action import Action
 
 class HpeOVBaseAction(Action):
     def __init__(self,config):
-        super(HpeOVBaseAction, self).__init__(config=config)
-        self.client = self._get_client()
+        super(HpeOVBaseAction, self).__init__(config)
 
-    def _get_client(self):
         authx = {
             "ip": self.config['ipaddress'],
             "credentials": {
@@ -34,6 +32,7 @@ class HpeOVBaseAction(Action):
                 "password": self.config['password']
             }
         }
+
 
         client = OneViewClient(authx)
 
