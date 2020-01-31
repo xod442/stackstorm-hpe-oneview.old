@@ -12,8 +12,7 @@ tasks:
         do: cleanvlans
 
   cleanvlans:
-    action: hpeoneview.format
-    input: <% ctx().networks %>
+    action: hpeoneview.format_vlans networks=<% ctx().networks %>
     next:
       - when: <% succeeded() %>
         publish:
