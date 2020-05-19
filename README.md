@@ -1,5 +1,5 @@
-# HPECFM Integration Pack
-This pack allows you to integrate with
+# HPE OneView Integration Pack
+This pack allows you to integrate with HPE OneView
 
 ## Configuration
 Copy the example configuration in [hpeoneview.yaml.example](./hpeoneview.yaml.example) to
