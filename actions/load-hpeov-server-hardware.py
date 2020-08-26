@@ -25,22 +25,32 @@ from lib.actions import HpeOVBaseAction
 
 
 class loadDb(HpeOVBaseAction):
-    def run(self, alarms):
+    def run(self, servers):
 
         mydb = self.dbclient["app_db"]
-        known = mydb["dwralarms"]
+        known = mydb["ovservers"]
 
-        new_alarm={}
+        new_server={}
 
-        for alarm in alarms:
-            myquery = { "_id" : alarm['created'] }
+        for server in servers:
+            myquery = { "_id" : server['created'] }
             records = known.find(myquery).count()
             if records == 0:
-                new_alarm['vendor']='hpe-oneview'
-                new_alarm['u_sev']=alarm['severity']
-                new_alarm['u_desc']=alarm['description']
-                new_alarm['u_uuid']=alarm['resourceUri']
-                new_alarm['_id']=alarm['created']
-                write_record = known.insert_one(new_alarm)
+                new_server['vendor']='hpe-oneview'
+                new_server['_id']=server['created']
+                new_server['assetTag']=server['assetTag']
+                new_server['eTag']=server['eTag']
+                new_server['hostOsType']=server['hostOsType']
+                new_server['memoryMb']=server['memoryMb']
+                new_server['model']=server['model']
+                new_server['firmWare']=server['mpFirmwareVersion']
+                new_server['hostName']=server['mpHostInfo']['mpHostName']
+                new_server['hostName']=server['mpHostInfo']['mpIpAddress']['address']
+                new_server['mpModel']=server['mpModel']
+                new_server['mpState']=server['mpState']
+                new_server['status']=server['status']
+                new_server['uuid']=server['uuid']
+                new_server['serno']=server['virtualSerialNumber']
+                write_record = known.insert_one(new_server)
                 # write_record = process.insert_one(alarm)
         return (records)
