@@ -25,6 +25,7 @@ class HpeOVBaseAction(Action):
     def __init__(self,config):
         super(HpeOVBaseAction, self).__init__(config=config)
         self.client = self._get_client()
+        self.dbclient = self._get_db_client()
 
     def _get_client(self):
         authx = {
@@ -38,3 +39,9 @@ class HpeOVBaseAction(Action):
         client = OneViewClient(authx)
 
         return client
+
+    def _get_db_client(self):
+        dbuser = self.config['dbuser']
+        dbpass = self.config['dbpass']
+        dbclient = MongoClient('mongodb://%s:%s@localhost:27017/' % (dbuser,dbpass))
+        return dbclient
