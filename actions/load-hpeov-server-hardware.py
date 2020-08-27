@@ -36,7 +36,7 @@ class loadDb(HpeOVBaseAction):
             myquery = { "_id" : server['created'] }
             records = known.find(myquery).count()
             if records == 0:
-                new_server['vendor']='hpe-oneview'
+                new_server['u_vendor']='hpe-oneview'
                 new_server['_id']=server['created']
                 new_server['u_created']=server['created']
                 new_server['u_assetTag']=server['assetTag']
