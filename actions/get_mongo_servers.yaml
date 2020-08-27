@@ -1,5 +1,5 @@
 ---
-name: get_mongo_aservers
+name: get_mongo_servers
 pack: hpeoneview
 description: Get an non-processed alarm entries from mongo database
 runner_type: python-script

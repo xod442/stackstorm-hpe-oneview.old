@@ -28,7 +28,7 @@ class loadDb(HpeOVBaseAction):
     def run(self):
 
         mydb = self.dbclient["app_db"]
-        known = mydb["servers"]
+        known = mydb["ovservers"]
 
         list_to_process = []
 
