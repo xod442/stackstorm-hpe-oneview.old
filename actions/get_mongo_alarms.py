@@ -25,7 +25,7 @@ from lib.actions import HpeOVBaseAction
 
 
 class loadDb(HpeOVBaseAction):
-    def run(self, servers):
+    def run(self):
 
         mydb = self.dbclient["app_db"]
         known = mydb["dwralarms"]
