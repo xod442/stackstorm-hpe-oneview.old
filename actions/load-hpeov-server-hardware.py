@@ -38,19 +38,21 @@ class loadDb(HpeOVBaseAction):
             if records == 0:
                 new_server['vendor']='hpe-oneview'
                 new_server['_id']=server['created']
-                new_server['assetTag']=server['assetTag']
-                new_server['eTag']=server['eTag']
-                new_server['hostOsType']=server['hostOsType']
-                new_server['memoryMb']=server['memoryMb']
-                new_server['model']=server['model']
-                new_server['firmWare']=server['mpFirmwareVersion']
-                new_server['hostName']=server['mpHostInfo']['mpHostName']
-                new_server['hostName']=server['mpHostInfo']['mpIpAddresses'][0]['address']
-                new_server['mpModel']=server['mpModel']
-                new_server['mpState']=server['mpState']
-                new_server['status']=server['status']
-                new_server['uuid']=server['uuid']
-                new_server['serno']=server['virtualSerialNumber']
+                new_server['u_created']=server['created']
+                new_server['u_assetTag']=server['assetTag']
+                new_server['u_eTag']=server['eTag']
+                new_server['u_hostOsType']=server['hostOsType']
+                new_server['u_memoryMb']=server['memoryMb']
+                new_server['u_model']=server['model']
+                new_server['u_firmWare']=server['mpFirmwareVersion']
+                new_server['u_hostName']=server['mpHostInfo']['mpHostName']
+                new_server['u_hostName']=server['mpHostInfo']['mpIpAddresses'][0]['address']
+                new_server['u_mpModel']=server['mpModel']
+                new_server['u_mpState']=server['mpState']
+                new_server['u_status']=server['status']
+                new_server['u_uuid']=server['uuid']
+                new_server['u_serno']=server['virtualSerialNumber']
+                new_server['u_process']='no'
                 write_record = known.insert_one(new_server)
                 # write_record = process.insert_one(alarm)
         return (records)

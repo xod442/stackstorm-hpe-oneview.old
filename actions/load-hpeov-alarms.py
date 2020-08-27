@@ -36,11 +36,13 @@ class loadDb(HpeOVBaseAction):
             myquery = { "_id" : alarm['created'] }
             records = known.find(myquery).count()
             if records == 0:
-                new_alarm['vendor']='hpe-oneview'
+                new_alarm['u_vendor']='hpe-oneview'
                 new_alarm['u_sev']=alarm['severity']
                 new_alarm['u_desc']=alarm['description']
                 new_alarm['u_uuid']=alarm['resourceUri']
                 new_alarm['_id']=alarm['created']
+                new_alarm['u_created']=alarm['created']
+                new_alarm['u_process']='no'
                 write_record = known.insert_one(new_alarm)
                 # write_record = process.insert_one(alarm)
         return (records)
