@@ -3,7 +3,7 @@ version: 1.0
 description: A workflow to copy hpe OneView alarms into a mongo database.
 
 tasks:
-  getswitches:
+  getalerts:
     action: hpeoneview.get_mongo_alarms
     next:
       - when: <% succeeded() %>
@@ -11,6 +11,6 @@ tasks:
           - alarms: <% result().result %>
         do: snowalerts
 
-    snowalerts:
-      with: <% ctx().alarms %>
-      action: servicenow.create_record table="u_hpeov_alarms" payload='<% item() %>'
+  snowalerts:
+    with: <% ctx().alarms %>
+    action: servicenow.create_record table="u_hpeov_alarms" payload='<% item() %>'

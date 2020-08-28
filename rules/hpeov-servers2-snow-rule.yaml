@@ -10,4 +10,4 @@ trigger:
     unit: minutes
 
 action:
-  ref: "hpeoneview.get-hpeov-mongo-servers2-snow"
+  ref: "hpeoneview.hpeov-mongo-servers2-snow"

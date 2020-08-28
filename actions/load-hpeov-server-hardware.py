@@ -46,7 +46,7 @@ class loadDb(HpeOVBaseAction):
                 new_server['u_model']=server['model']
                 new_server['u_firmWare']=server['mpFirmwareVersion']
                 new_server['u_hostName']=server['mpHostInfo']['mpHostName']
-                new_server['u_hostName']=server['mpHostInfo']['mpIpAddresses'][0]['address']
+                new_server['u_address']=server['mpHostInfo']['mpIpAddresses'][0]['address']
                 new_server['u_mpModel']=server['mpModel']
                 new_server['u_mpState']=server['mpState']
                 new_server['u_status']=server['status']

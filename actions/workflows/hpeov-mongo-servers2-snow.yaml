@@ -3,7 +3,7 @@ version: 1.0
 description: A workflow to copy hpe OneView servers from a mongo database to service now.
 
 tasks:
-  getswitches:
+  getservers:
     action: hpeoneview.get_mongo_servers
     next:
       - when: <% succeeded() %>
@@ -11,6 +11,6 @@ tasks:
           - servers: <% result().result %>
         do: snowservers
 
-    snowservers:
-      with: <% ctx().servers %>
-      action: servicenow.create_record table="u_hpeov_servers" payload='<% item() %>'
+  snowservers:
+    with: <% ctx().servers %>
+    action: servicenow.create_record table="u_hpeov_servers" payload='<% item() %>'
