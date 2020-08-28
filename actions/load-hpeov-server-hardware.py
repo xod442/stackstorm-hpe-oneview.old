@@ -40,7 +40,7 @@ class loadDb(HpeOVBaseAction):
                 new_server['_id']=server['created']
                 new_server['u_created']=server['created']
                 new_server['u_assettag']=server['assetTag']
-                new_server['u_etag']=(server['eTag']
+                new_server['u_etag']=server['eTag']
                 new_server['u_hostostype']=server['hostOsType']
                 new_server['u_memorymb']=server['memoryMb']
                 new_server['u_model']=server['model']
