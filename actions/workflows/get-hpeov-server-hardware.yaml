@@ -3,7 +3,7 @@ version: 1.0
 description: A workflow to copy hpe OneView server hardware into a mongo database.
 
 tasks:
-  getswitches:
+  getservers:
     action: hpeoneview.get_server_hardware
     next:
       - when: <% succeeded() %>

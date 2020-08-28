@@ -3,7 +3,7 @@ version: 1.0
 description: A workflow to copy hpe OneView alarms into a mongo database.
 
 tasks:
-  getswitches:
+  getalarms:
     action: hpeoneview.get_alerts
     next:
       - when: <% succeeded() %>
