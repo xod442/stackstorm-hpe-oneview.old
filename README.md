@@ -11,6 +11,8 @@ It must contain:
 ipaddress - Your OneView appliance IP address
 username - OneView User name
 password - OneView Password
+dbuser  - Mongo database username
+dbpass - Mongo database password
 ```
 
 You can also use dynamic values from the datastore. See the
@@ -23,6 +25,8 @@ Example configuration:
   ipaddress: "10.10.10.10"
   username: "Administrator"
   password: "password"
+  dbuser: "appUser"
+  dbpass: "passwordForAppUser"
 ```
 You can also run `st2 pack config hpeoneview` and answer the promts
 
@@ -38,7 +42,22 @@ Actions are defined in two groups:
 ### Individual actions: GET, POST, PUT with under bar will precede each individual action
 * ``get_interconnects``
 * ``get_network_sets``
-* ``get_`enclosure`
+* ``get_`enclosure``
 * ``post_fabrics``
 
 ### Orquestra Workflows: will not
+
+This application uses the mongo db installed by StackStorm. Since the DB is secured
+you will need to log into the StackStorm mongo DB as a StackStorm admin and create a separate DB
+
+# To get this pack to work with StackStorm mongo DB
+
+log in with admin first
+-------------------------------------------------------------------------------------
+mongo -u admin -p UkIbDILcNbMhkh3KtN6xfr9h admin  (passwd in /etc/st2/st2.config)
+
+# Then create a new user
+db.createUser({user: "appUser",pwd: "passwordForAppUser",roles: [ { role: "readWrite", db: "app_db" } ]})
+
+# Then if necessary you can check the mongo datbase records by
+mongo -u admin -p UkIbDILcNbMhkh3KtN6xfr9h admin
