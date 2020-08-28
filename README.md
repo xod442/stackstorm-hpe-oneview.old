@@ -60,4 +60,4 @@ mongo -u admin -p UkIbDILcNbMhkh3KtN6xfr9h admin  (passwd in /etc/st2/st2.config
 db.createUser({user: "appUser",pwd: "passwordForAppUser",roles: [ { role: "readWrite", db: "app_db" } ]})
 
 # Then if necessary you can check the mongo datbase records by
-mongo -u appUser -p passwordForUser admin
+mongo -u appUser -p passwordForAppUser admin
