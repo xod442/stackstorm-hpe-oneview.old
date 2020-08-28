@@ -28,7 +28,7 @@ Example configuration:
   dbuser: "appUser"
   dbpass: "passwordForAppUser"
 ```
-You can also run `st2 pack config hpeoneview` and answer the promts
+You can also run `st2 pack config hpeoneview` and answer the prompts
 
 **Note** : When modifying the configuration in `/opt/stackstorm/configs/` please
            remember to tell StackStorm to load these new values by running
@@ -60,4 +60,4 @@ mongo -u admin -p UkIbDILcNbMhkh3KtN6xfr9h admin  (passwd in /etc/st2/st2.config
 db.createUser({user: "appUser",pwd: "passwordForAppUser",roles: [ { role: "readWrite", db: "app_db" } ]})
 
 # Then if necessary you can check the mongo datbase records by
-mongo -u admin -p UkIbDILcNbMhkh3KtN6xfr9h admin
+mongo -u appUser -p passwordForUser admin
