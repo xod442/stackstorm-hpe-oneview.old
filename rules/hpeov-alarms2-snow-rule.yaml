@@ -1,7 +1,7 @@
 ---
 name: "hpeov-alarms2-snow-rule"
 description: "Get HPE OneView alarms and send to service now."
-enabled: true
+enabled: false
 
 trigger:
   type: "core.st2.IntervalTimer"

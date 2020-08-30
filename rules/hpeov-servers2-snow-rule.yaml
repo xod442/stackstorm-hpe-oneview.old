@@ -1,7 +1,7 @@
 ---
 name: "hpeov-servers2-snow-rule"
 description: "Get HPE OneView servers and send to service now."
-enabled: true
+enabled: false
 
 trigger:
   type: "core.st2.IntervalTimer"
