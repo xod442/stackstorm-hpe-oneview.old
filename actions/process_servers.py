@@ -25,19 +25,12 @@ from lib.actions import HpeOVBaseAction
 
 
 class loadDb(HpeOVBaseAction):
-    def run(self):
+    def run(self, servers):
 
         mydb = self.dbclient["app_db"]
         known = mydb["ovservers"]
 
-        list_to_process = []
+        for s in servers:
+            known.update_one({"_id":r['_id']},{"$set":{"u_process":"yes"}})
 
-        myquery = { "u_process" : 'no' }
-        records = known.find(myquery)
-
-        for r in records:
-            # known.update_one({"_id":r['_id']},{"$set":{"u_process":"yes"}})
-            # known.delete_one("_id" : r['_id'])
-            list_to_process.append(r)
-
-        return (list_to_process)
+        return ()

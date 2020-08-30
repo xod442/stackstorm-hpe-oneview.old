@@ -1,6 +1,6 @@
 version: 1.0
 
-description: A workflow to copy hpe OneView alarms into a mongo database.
+description: A workflow to copy hpe OneView alarms ifrom mongo and into snow.
 
 tasks:
   getalerts:
@@ -14,3 +14,9 @@ tasks:
   snowalerts:
     with: <% ctx().alarms %>
     action: servicenow.create_record table="u_hpeov_alarms" payload='<% item() %>'
+    next:
+      - when: <% succeeded() %>
+        do: processalarms
+
+  processalarms:
+    action: hpeoneview.hpeov-process-alarms alarms=<% ctx().alarms %>

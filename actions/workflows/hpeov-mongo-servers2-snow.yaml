@@ -1,6 +1,6 @@
 version: 1.0
 
-description: A workflow to copy hpe OneView servers from a mongo database to service now.
+description: A workflow to copy hpe OneView alarms into from mongo and into snow.
 
 tasks:
   getservers:
@@ -12,5 +12,11 @@ tasks:
         do: snowservers
 
   snowservers:
-    with: <% ctx().servers %>
+    with: <% ctx().alarms %>
     action: servicenow.create_record table="u_hpeov_servers" payload='<% item() %>'
+    next:
+      - when: <% succeeded() %>
+        do: processservers
+
+  processservers:
+    action: hpeoneview.hpeov-process-servers servers=<% ctx().servers %>

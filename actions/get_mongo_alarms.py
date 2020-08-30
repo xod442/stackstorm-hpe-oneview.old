@@ -36,7 +36,9 @@ class loadDb(HpeOVBaseAction):
         records = known.find(myquery)
 
         for r in records:
-            known.update_one({"_id":r['_id']},{"$set":{"u_process":"yes"}})
+            # Do not update. Keep the code for reference
+            # known.update_one({"_id":r['_id']},{"$set":{"u_process":"yes"}})
+            # known.delete_one("_id" : r['_id'])
             list_to_process.append(r)
 
 
