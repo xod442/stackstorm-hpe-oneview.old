@@ -31,6 +31,6 @@ class loadDb(MongoBaseAction):
         known = mydb["dwralarms"]
 
         for a in alarms:
-            known.update_one({"_id":r['_id']},{"$set":{"u_process":"yes"}})
+            known.update_one({"_id":a['_id']},{"$set":{"u_process":"yes"}})
 
         return ()

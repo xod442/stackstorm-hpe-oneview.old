@@ -31,6 +31,6 @@ class loadDb(MongoBaseAction):
         known = mydb["ovservers"]
 
         for s in servers:
-            known.update_one({"_id":r['_id']},{"$set":{"u_process":"yes"}})
+            known.update_one({"_id":s['_id']},{"$set":{"u_process":"yes"}})
 
         return ()
