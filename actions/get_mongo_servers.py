@@ -21,10 +21,10 @@
 # A python script for getting a dictionary of switches
 
 import pymongo
-from lib.actions import HpeOVBaseAction
+from lib.actions import MongoBaseAction
 
 
-class loadDb(HpeOVBaseAction):
+class loadDb(MongoBaseAction):
     def run(self):
 
         mydb = self.dbclient["app_db"]

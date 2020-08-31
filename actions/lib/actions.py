@@ -16,7 +16,7 @@
 # __credits__ = ["Rick Kauffman"]
 # __license__ = "Apache2.0"
 # __maintainer__ = "Rick Kauffman"
-# __email__ = "rick.a.kauffman@hpe.com""
+# __email__ = "rick.a.kauffman@hpe.com"""
 
 import pymongo
 from pymongo import MongoClient
@@ -27,7 +27,6 @@ class HpeOVBaseAction(Action):
     def __init__(self,config):
         super(HpeOVBaseAction, self).__init__(config=config)
         self.client = self._get_client()
-        self.dbclient = self._get_db_client()
 
     def _get_client(self):
         authx = {
@@ -42,8 +41,15 @@ class HpeOVBaseAction(Action):
 
         return client
 
+class MongoBaseAction(Action):
+    def __init__(self,config):
+        super(MongoBaseAction, self).__init__(config=config)
+        self.dbclient = self._get_db_client()
+
     def _get_db_client(self):
         dbuser = self.config['dbuser']
         dbpass = self.config['dbpass']
+
         dbclient = MongoClient('mongodb://%s:%s@localhost:27017/' % (dbuser,dbpass))
+
         return dbclient
