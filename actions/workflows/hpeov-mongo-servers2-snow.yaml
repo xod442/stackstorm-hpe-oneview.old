@@ -12,7 +12,7 @@ tasks:
         do: snowservers
 
   snowservers:
-    with: <% ctx().alarms %>
+    with: <% ctx().servers %>
     action: servicenow.create_record table="u_hpeov_servers" payload='<% item() %>'
     next:
       - when: <% succeeded() %>
