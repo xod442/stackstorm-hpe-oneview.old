@@ -19,4 +19,4 @@ tasks:
         do: processalarms
 
   processalarms:
-    action: hpeoneview.process-alarms alarms=<% ctx().alarms %>
+    action: hpeoneview.process_alarms alarms=<% ctx().alarms %>
