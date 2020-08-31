@@ -19,4 +19,4 @@ tasks:
         do: processservers
 
   processservers:
-    action: hpeoneview.hpeov-process-servers servers=<% ctx().servers %>
+    action: hpeoneview.process-servers servers=<% ctx().servers %>
