@@ -53,7 +53,7 @@ you will need to log into the StackStorm mongo DB as a StackStorm admin and crea
 # To get this pack to work with StackStorm mongo DB
 
 log in with admin first
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
 mongo -u admin -p UkIbDILcNbMhkh3KtN6xfr9h admin  (passwd in /etc/st2/st2.config)
 
 # Then create a new user
@@ -61,3 +61,12 @@ db.createUser({user: "appUser",pwd: "passwordForAppUser",roles: [ { role: "readW
 
 # Then if necessary you can check the mongo database records by
 mongo -u appUser -p passwordForAppUser admin
+
+# Servicenow Tables
+![Server Hardware - server hardware information](/img/servers.png)
+Server fields in service now: u_vendor,u_created,u_assettag,u_etag,u_hostostype,u_memorymb,u_model,u_firmware,
+u_hostname,u_address,u_mpmodel,u_mpstate,u_status,u_uuid,u_serno
+
+![OneView Alarms - Alarm information](/img/servers.png)
+Alarms fields in service now:
+u_vendor,u_sev,u_desc,u_uuid,u_created
