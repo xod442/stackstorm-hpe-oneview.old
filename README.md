@@ -63,10 +63,10 @@ db.createUser({user: "appUser",pwd: "passwordForAppUser",roles: [ { role: "readW
 mongo -u appUser -p passwordForAppUser admin
 
 # Servicenow Tables
-![Server Hardware - server hardware information](/img/servers.png)
+![Server Hardware - server hardware information](/img/server.png)
 Server fields in service now: u_vendor,u_created,u_assettag,u_etag,u_hostostype,u_memorymb,u_model,u_firmware,
 u_hostname,u_address,u_mpmodel,u_mpstate,u_status,u_uuid,u_serno
 
-![OneView Alarms - Alarm information](/img/servers.png)
+![OneView Alarms - Alarm information](/img/alarm.png)
 Alarms fields in service now:
 u_vendor,u_sev,u_desc,u_uuid,u_created
