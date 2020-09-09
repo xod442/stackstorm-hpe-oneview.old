@@ -1,7 +1,7 @@
 ---
 name: "hpeov-server-hardware"
 description: "Get HPE OneView server hardware."
-enabled: true
+enabled: false
 
 trigger:
   type: "core.st2.IntervalTimer"
