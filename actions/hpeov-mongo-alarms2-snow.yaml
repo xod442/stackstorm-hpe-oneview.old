@@ -1,6 +1,0 @@
----
-name: hpeov-mongo-alarms2-snow
-description: A workflow for sending oneview alerts from mongo to servicenow.
-runner_type: orquesta
-entry_point: workflows/hpeov-mongo-alarms2-snow.yaml
-enabled: true
