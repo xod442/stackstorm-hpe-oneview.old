@@ -1,5 +1,5 @@
 ---
-name: "hpeov-alarms"
+name: "hpeov-alarms-mongo-kafka"
 description: "Get HPE OneView alarms and load mongo databases."
 enabled: false
 
